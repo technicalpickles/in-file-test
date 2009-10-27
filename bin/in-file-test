@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'activesupport'
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'in-file-test'
+
+filename = ARGV[0]
+
+if filename.blank?
+  $stderr.puts "Specify a file to generate with in file tests"
+  exit 1
+end
+
+exit InFileTest.generate(filename)
